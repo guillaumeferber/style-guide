@@ -1,7 +1,23 @@
-Copyright 2020 Guillaume FERBER
+# Phantom Style Guide
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+This repository contains our style guides for HTML-CSS reusable components.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+- [Description](#description)
+- [Setup](#setup)
+- [Contributing to Style Guide](#contributing-to-style-guide)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## Description
+
+HTML-CSS Style Guide for creating HTML-CSS reusable components.
+The CSS guidelines follow the
+- [CSS Guidelines](https://cssguidelin.es/?utm_source=dailydevlinks.com&utm_medium=link_post_dailydevjobs.com&utm_campaign=link_post_dailydevjobs.com&ref=dailydevlinks.com)
+- [Sass Guidelines](https://sass-guidelin.es/?utm_source=dailydevlinks.com&utm_medium=link_post_dailydevjobs.com&utm_campaign=link_post_dailydevjobs.com&ref=dailydevlinks.com#syntax--formatting)
+- [AirBnb Guidelines](https://github.com/airbnb/css?utm_source=dailydevlinks.com&utm_medium=link_post_dailydevjobs.com&utm_campaign=link_post_dailydevjobs.com&ref=dailydevlinks.com)
+
+## Setup
+
+`npm start`
+
+## Contributing to Style Guide
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).

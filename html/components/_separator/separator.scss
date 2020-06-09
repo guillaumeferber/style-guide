@@ -1,0 +1,12 @@
+@mixin separator {
+    $defaultMarginValue: 1.2rem;
+    margin-top: $defaultMarginValue;
+    margin-bottom: $defaultMarginValue;
+    border: 0;
+    border-top: 1px solid rgba(#000, .1);
+}
+hr,
+.c-separator,
+hr.c-separator {
+    @include separator();
+}

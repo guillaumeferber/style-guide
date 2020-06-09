@@ -1,0 +1,100 @@
+@import "../_separator/separator.scss";
+.c-alert {
+    $blue: #10487B;
+    $red: #b30015;
+    $grey: #ddd;
+    $green: #84C954;
+    $light-grey: #ACBCC8;
+    $yellow: #BA9337;
+    $black: #000;
+    $defaultMarginValue: 1rem;
+    $defaultDarkenValue: 20%;
+    $defaultLightenValue: 30%;
+    font: 300 1rem/1.4 var(--sans-serif);
+    position: relative;
+    overflow: hidden;
+    padding: ($defaultMarginValue * .75) ($defaultMarginValue * 1.25);
+    margin-bottom: $defaultMarginValue;
+    border: 1px solid transparent;
+    border-radius: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: all .15s ease-out 0s;
+    &--primary {
+        color: darken($blue, $defaultDarkenValue);
+        background-color: lighten($blue, $defaultLightenValue);
+    }
+    &--secondary {
+        color: darken($grey, $defaultDarkenValue);
+        background-color: lighten($grey, $defaultLightenValue);
+        border-color: $grey;
+    }
+    &--success {
+        color: darken($green, $defaultDarkenValue);
+        background-color: lighten($green, $defaultLightenValue);
+    }
+    &--danger {
+        color: darken($red, $defaultDarkenValue);
+        background-color: lighten($red, $defaultLightenValue);
+    }
+    &--warning {
+        color: darken($yellow, $defaultDarkenValue);
+        background-color: lighten($yellow, $defaultLightenValue);
+    }
+    &--info {
+        color: darken($light-grey, $defaultDarkenValue);
+        background-color: lighten($light-grey, $defaultDarkenValue);
+    }
+
+    hr {
+        @include separator();
+    }
+    &__heading {
+        margin-bottom: $defaultMarginValue*2;
+        position: relative;
+        &::after {
+            position: absolute;
+            bottom: -$defaultMarginValue; left: 0;
+            width: 100%;
+            display: block;
+            content: '';
+            height: 1px;
+            background-color: $light-grey;
+            .c-alert--primary & { background-color: lighten($blue, $defaultDarkenValue); }
+            .c-alert--secondary & { background-color: lighten($light-grey, $defaultDarkenValue); }
+            .c-alert--success & { background-color: lighten($green, $defaultDarkenValue); }
+            .c-alert--danger & { background-color: lighten($red, $defaultDarkenValue); }
+            .c-alert--warning & { background-color: lighten($yellow, $defaultDarkenValue); }
+            .c-alert--info & { background-color: lighten(darkgrey, $defaultDarkenValue); }
+        }
+    }
+    &--dismissed {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        height: 0;
+        margin: 0; padding: 0;
+    }
+    &__close {
+        input[type=checkbox] {
+            position: absolute;
+            left: -9999px;
+            visibility: hidden;
+            opacity: 0;
+        }
+        label {
+            height: 14px; width: 14px;;
+            position: absolute;
+            top: $defaultMarginValue/2;
+            right: $defaultMarginValue;
+            color: inherit;
+            cursor: pointer;
+            transition: all .15s linear 0s;
+            transform: scale(1);
+            &:hover {
+                font-weight: 400;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
