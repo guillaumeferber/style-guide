@@ -1,0 +1,54 @@
+.c-card-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+.c-card {
+    $blue: #10487B;
+    $red: #b30015;
+    $grey: #eee;
+    $white: #f0f0f0;
+    $green: #84C954;
+    $light-grey: #ACBCC8;
+    $yellow: rgb(255, 174, 0);
+    $black: #1a1a1a;
+    border: 1px solid lighten($black, 75%);
+    width: 18rem;
+    margin-bottom: 2rem;
+    margin-right: .7rem;
+    transition: all .2s ease-in-out;
+    &__img {
+        max-width: 100%;
+        width: 100%;
+    }
+    &__body {
+        padding: 20px;
+        text-align: left;
+        font-family: var(--sans-serif), Arial, Helvetica, sans-serif;
+    }
+    &__title { font-weight: 700; }
+    &__text {
+        font-size: 85%;
+        &:last-of-type {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &--rounded {
+        border-radius: .25em;
+        .c-card__img--top {
+            border-top-left-radius: calc(.25rem - 1px);
+            border-top-right-radius: calc(.25rem - 1px);
+        }
+    }
+    &--shadow {
+        box-shadow: 0 1px 12px 1px rgba($black, .15);
+        &:hover {
+            box-shadow: 0 1px 17px 3px rgba($black, .15);
+            transform: scale(1.05);
+        }
+    }
+    &--row {
+        display: inline-flex;
+        width: 100%;
+    }
+}
