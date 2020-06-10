@@ -1,0 +1,81 @@
+.c-collapse {
+    $blue: #10487B;
+    $red: #b30015;
+    $grey: #ddd;
+    $green: #84C954;
+    $light-grey: #ACBCC8;
+    $yellow: rgb(255, 174, 0);
+    $black: #1a1a1a;
+    $defaultLightenValue: 15%;
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 1rem;
+    font-size: 20px;
+    transition: all .25s ease-in-out 0s;
+    summary {
+        position: relative;
+        display: list-item;
+        cursor: pointer;
+        outline: none;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $black;
+        transition: all .25s ease-in-out 0s;
+        &::-webkit-details-marker { display: none }
+        &::after,
+        &::before { transition: all .25s ease-in-out 0s; }
+        &::before {
+            position: absolute;
+            display: block;
+            top: calc(50% - 12px);
+            right: 0;
+            font-size: 1rem;
+            content: "╳";
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+            display: block;
+            height: 1px;
+            width: 100%;
+            background-color: #eee;
+        }
+
+    }
+
+    &[open] summary::before {
+        content: "╲";
+        transform: rotate(-45deg)
+    }
+
+    &__body {
+        position: relative;
+        height: 0;
+        padding-top: 40px;
+        font-size: 1rem;
+        z-index: 0;
+    }
+
+    &[open] {
+        .c-collapse__body {
+            height: 100%;
+            animation: sweep .5s ease-in-out;
+        }
+    }
+}
+
+
+@keyframes sweep {
+    0%    {opacity: 0; transform: translateY(-10px)}
+    100%  {opacity: 1; transform: translateY(0)}
+}

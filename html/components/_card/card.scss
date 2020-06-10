@@ -3,13 +3,6 @@
     flex-wrap: wrap;
 }
 .c-card {
-    $blue: #10487B;
-    $red: #b30015;
-    $grey: #eee;
-    $white: #f0f0f0;
-    $green: #84C954;
-    $light-grey: #ACBCC8;
-    $yellow: rgb(255, 174, 0);
     $black: #1a1a1a;
     border: 1px solid lighten($black, 75%);
     width: 18rem;
@@ -44,7 +37,7 @@
         box-shadow: 0 1px 12px 1px rgba($black, .15);
         &:hover {
             box-shadow: 0 1px 17px 3px rgba($black, .15);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
     }
     &--row {
