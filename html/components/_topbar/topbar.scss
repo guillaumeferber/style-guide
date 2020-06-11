@@ -1,0 +1,150 @@
+$topbar-responsive-bg: #2c3840;
+$topbar-responsive-animation-type: fade-in; // or use slide-down or none
+$white: #fff;
+
+.c-topbar {
+    background: $topbar-responsive-bg;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    @media screen and (max-width: 39.9375em) {
+        width: 80vw;
+    }
+    font: 400 1rem/1 var(--sans-serif), Arial, Helvetica, sans-serif;
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: 39.9375em) {
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+    }
+    &__logo {
+        color: $white;
+        vertical-align: middle;
+    }
+
+    @media screen and (max-width: 39.9375em) {
+        padding: 0.75rem;
+
+        .c-topbar__title {
+        position: relative;
+        width: 100%;
+
+        span {
+            position: absolute;
+            right: 0;
+            border: 1px solid $white;
+            border-radius: 5px;
+            padding: 0.25rem 0.45rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        }
+    }
+}
+
+.c-menu {
+    list-style: none;
+    background: $topbar-responsive-bg;
+    display: flex;
+    align-items: center;
+    padding: 0; margin: 0;
+    @media screen and (max-width: 39.9375em) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    li:last-of-type {
+        margin-right: 0;
+    }
+
+    & > li {
+        & + li { margin-left: 1.2rem; }
+        & > a {
+            color: $white;
+            transition: color 0.15s ease-in;
+
+            &:hover {
+                text-decoration: none;
+                color: lighten($topbar-responsive-bg, 60%);
+            }
+
+            @media screen and (max-width: 39.9375em) {
+                padding: 0.875rem 0;
+            }
+          }
+    }
+
+}
+
+.c-menu-icon {
+    position: relative;
+    display: none;
+    &--checkbox {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    &--label {
+        margin-bottom: 4px;
+        span {
+            $defaultMenuBarMargin: 8px;
+            height: 3px;
+            background-color: red;
+            width: 24px;
+            position: absolute;
+            z-index: 3;
+            &::before,
+            &::after {
+                display: block;
+                position: absolute;
+                content: '';
+                top: -$defaultMenuBarMargin;
+                left: 0;
+                height: 3px; width: 24px;
+                background-color: red;
+                z-index: 3;
+            }
+            &::before {
+                top: $defaultMenuBarMargin;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity:0;
+  } to {
+    opacity:1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+    .c-menu-icon { display: inline-block; }
+    .c-topbar__links {
+        animation-fill-mode: both;
+        animation-duration: 0.5s;
+        width: 100%;
+
+        @if $topbar-responsive-animation-type == slide-down {
+            animation: slideDown 1s ease-in;
+        } @else if $topbar-responsive-animation-type == fade-in {
+            animation: fadeIn 1s ease-in;
+        } @else {
+            animation: none;
+        }
+    }
+}

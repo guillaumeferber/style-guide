@@ -1,0 +1,35 @@
+.c-breadcrumb {
+    $blue: #10487B;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 5px 0 5px 10px;
+    background-color: #F5F5F5;
+    & > li {
+        a {
+            font-size: 1rem;
+            color: $blue;
+            font-family: var(--sans-serif), Arial, Helvetica, sans-serif;
+        }
+        & + li {
+            margin-left: 2rem;
+            position: relative;
+            &::before {
+                position: absolute;
+                top: 0;
+                line-height: 1.7;
+                content: '|';
+                color: #777;
+                display: inline-block;
+                font-size: 1rem;
+                left: -1.4rem;
+            }
+        }
+    }
+    .is-active > a {
+        pointer-events: none;
+        text-decoration: none;
+        color: #777;
+        cursor: default;
+    }
+}
