@@ -1,55 +1,13 @@
 .c-badge {
-    $blue: #10487B;
-    $red: #b30015;
-    $grey: #eee;
-    $white: #f0f0f0;
-    $green: #84C954;
-    $light-grey: #ACBCC8;
-    $yellow: rgb(255, 174, 0);
-    $black: #1a1a1a;
-    $defaultLightenValue: 15%;
-    display: inline-block;
-    padding: 3px 5px;
-    text-align: center;
-    border-radius: 0;
-    background-color: hotpink;
-    white-space: nowrap;
-    vertical-align: baseline;
-    color: $white;
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    cursor: default;
-    font: 400 .75rem/1 var(--sans-serif);
-    &--primary {
-        background-color: lighten($blue, $defaultLightenValue);
-    }
-    &--secondary {
-        background-color: #fff;
-        border-color: $grey;
-        color: inherit;
-    }
-    &--success {
-        background-color: $green;
-    }
-    &--danger {
-        background-color: lighten($red, $defaultLightenValue);
-    }
-    &--info {
-        background-color: complement($red);
-    }
-    &--warning {
-        background-color: $yellow;
-    }
-    &--light {
-        background-color: $grey;
-        color: lighten($black, $defaultLightenValue);
-    }
-    &--dark {
-        background-color: $black;
-        color: $white;
-    }
-    .c-button & {
+    &::before {
+        display: table;
+        content: '';
         position: relative;
-        top: -2px;
     }
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    padding: 5px;
+    text-align: center;
 }
