@@ -39,27 +39,6 @@
     }
 }
 
-.c-hero {
-    &__content {
-        display: flex;
-        align-items: center;
-    }
-    &__image {
-        width: 100%;
-        max-width: 100%;
-        background-size: cover;
-    }
-    &__column {
-
-        &:first-child {
-            width: calc(100% / 5 * 2);
-            margin-right: 2rem;
-        }
-        &:last-child {
-            width: calc(100% / 5 * 3);
-        }
-    }
-}
 @media (min-width: 576px) {
     .c-hero {
         padding: 4rem 2rem;

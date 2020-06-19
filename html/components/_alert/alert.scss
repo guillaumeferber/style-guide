@@ -2,7 +2,7 @@
 .c-alert {
     $blue: #10487B;
     $red: #b30015;
-    $grey: #ddd;
+    $grey: #F8F9FA;
     $green: #84C954;
     $light-grey: #ACBCC8;
     $yellow: #BA9337;
@@ -20,30 +20,35 @@
     opacity: 1;
     visibility: visible;
     transition: all .15s ease-out 0s;
-    &--primary {
-        color: darken($blue, $defaultDarkenValue);
-        background-color: lighten($blue, $defaultLightenValue);
+    background-color: $grey;
+    color: #8A8A8A;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+                0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+                0 12.5px 10px rgba(0, 0, 0, 0.06);
+    &:before {
+        height: 100%;
+        width: 6px;
+        position: absolute;
+        top: 0; left: 0;
+        content: '';
     }
-    &--secondary {
-        color: darken($grey, $defaultDarkenValue);
-        background-color: lighten($grey, $defaultLightenValue);
-        border-color: $grey;
+    &--primary:before {
+        background-color: lighten($blue, $defaultDarkenValue);
     }
-    &--success {
-        color: darken($green, $defaultDarkenValue);
-        background-color: lighten($green, $defaultLightenValue);
+    &--secondary:before {
+        background-color: $grey;
     }
-    &--danger {
-        color: darken($red, $defaultDarkenValue);
-        background-color: lighten($red, $defaultLightenValue);
+    &--success:before {
+        background-color: $green;
     }
-    &--warning {
-        color: darken($yellow, $defaultDarkenValue);
-        background-color: lighten($yellow, $defaultLightenValue);
+    &--danger:before {
+        background-color: lighten($red, $defaultDarkenValue);
     }
-    &--info {
-        color: darken($light-grey, $defaultDarkenValue);
-        background-color: lighten($light-grey, $defaultDarkenValue);
+    &--warning:before {
+        background-color: lighten($yellow, $defaultDarkenValue);
+    }
+    &--info:before {
+        background-color: $light-grey;
     }
 
     hr {
@@ -59,13 +64,8 @@
             display: block;
             content: '';
             height: 1px;
-            background-color: $light-grey;
-            .c-alert--primary & { background-color: lighten($blue, $defaultDarkenValue); }
-            .c-alert--secondary & { background-color: lighten($light-grey, $defaultDarkenValue); }
-            .c-alert--success & { background-color: lighten($green, $defaultDarkenValue); }
-            .c-alert--danger & { background-color: lighten($red, $defaultDarkenValue); }
-            .c-alert--warning & { background-color: lighten($yellow, $defaultDarkenValue); }
-            .c-alert--info & { background-color: lighten(darkgrey, $defaultDarkenValue); }
+            background-color: #d1d1d1;
+
         }
     }
     &--dismissed {

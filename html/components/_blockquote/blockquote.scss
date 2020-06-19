@@ -1,0 +1,76 @@
+.c-blockquote {
+    $black: #0a0a0a;
+    position: relative;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+    border: 1px solid rgba($black, .25);
+    border-radius: 0;
+    background-color: #fff;
+    color: $black;
+    &__title {
+        margin-left: 1rem;
+        font-size: 1.5625rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+    }
+
+    blockquote {
+        margin: 0 0 1.5rem;
+        padding: 0.5625rem 1.25rem 0 1.1875rem;
+        quotes: "“" "”" "‘" "’ ";
+        border-left: none;
+        font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+        &:before {
+            content: open-quote;
+            color: #8a8a8a;
+            font-size: 4em;
+            line-height: 0.1em;
+            vertical-align: -0.4em;
+        }
+        &:after {
+            content: close-quote;
+            color: #8a8a8a;
+            font-size: 4em;
+            line-height: 0.1em;
+            vertical-align: -0.6em;
+        }
+        &, p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        & > :last-child {
+            margin-bottom: 0;
+        }
+
+    }
+    &__content {
+        display: inline;
+        color: $black;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+.c-blockquote-container {
+    &--right {
+        float: right;
+        width: 35%;
+        margin-left: 2rem;
+        @media screen and (max-width: 500px) {
+            float: none;
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+    &--left {
+        float: left;
+        width: 35%;
+        margin-right: 2rem;
+        @media screen and (max-width: 500px) {
+            float: none;
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+
+}
