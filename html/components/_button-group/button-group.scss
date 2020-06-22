@@ -1,0 +1,72 @@
+.c-button-group {
+    $blue: #1979BA;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: auto;
+    margin-bottom: 1rem;
+    &__radio {
+        input[type=radio] {
+            position: absolute;
+            left: -9999px;
+            appearance: none;
+            visibility: hidden;
+            opacity: 0;
+            &:checked ~ label {
+                background-color: $blue;
+                color: #fff;
+            }
+        }
+
+        label {
+            display: inline-block;
+            background-color: #fff;
+            padding: 8px 12px;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            transition: all .25s ease-in;
+            border: 1px solid transparent;
+            border-top-color: $blue;
+            border-bottom-color: $blue;
+            border-radius: 0;
+            font: 400 1rem/1 Arial, Helvetica, Verdana, sans-serif;
+            &:hover {
+                background-color: lighten($blue, 25%);
+                color: #fff
+            }
+        }
+
+        &:first-child label {
+            border-left-color: $blue;
+        }
+        &:not(:last-child) {
+            label {
+                border-left-color: $blue;
+                border-right-color: $blue;
+            }
+            & + & label { border-left-width: 0;}
+        }
+        &:last-child label {
+            border-right-color: $blue;
+            border-left-width: 0;
+        }
+    }
+    &--rounded .c-button-group__radio {
+        &:first-child label {
+            border-radius: 4px 0 0 4px;
+        }
+
+        &:last-child label {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    &--noborder .c-button-group__radio {
+        label {
+            border-width: 0;
+        }
+    }
+}

@@ -1,12 +1,19 @@
+.c-blog-article-group {
+    display: flex;
+    flex-flow: row wrap;
+    @media screen and (min-width: 50rem) {
+        justify-content: space-between;
+    }
+}
 .c-blog-article {
     $grey: #8A8A8A;
     $black: #1a1a1a;
     width: 100%;
     display: inline-block;
     font: 400 1rem/1.8 Segoe, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
-    & + & { margin-left: 2rem; }
+    // & + & { margin-left: 2rem; }
     @media screen and (min-width: 50rem) {
-        width: 31%;
+        width: 30%;
     }
     &__heading {
         color: $black;

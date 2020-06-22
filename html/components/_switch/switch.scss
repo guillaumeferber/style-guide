@@ -1,0 +1,45 @@
+.c-switch {
+    $green: #69dd6b;
+    $red: #f44935;
+
+    &__check {
+        display: block;
+        position: relative;
+        border-radius: 20px;
+        background-color: $green;
+        cursor: pointer;
+        height: 20px; width: 40px;
+        overflow: hidden;
+        transition: background-color .5s ease-out;
+        &:before,
+        &:after {
+            position: absolute;
+            content: "";
+            height: 16px; width: 16px;
+            border-radius: 50%;
+            top: 2px;
+            transition: transform .5s ease;
+        }
+        &:before {
+            left: 2px;
+            background-color: #fff;
+        }
+        &:after {
+            background-color: #fff;
+            right: 2px;
+            transform: translateX(50px);
+        }
+    }
+
+    input[type=checkbox] {
+        appearance: none;
+        visibility: hidden;
+        opacity: 0;
+
+        &:checked ~ .c-switch__check {
+            background-color: $red;
+            &:before { transform: translateX(-50px); }
+            &:after { transform: translateX(0); }
+        }
+    }
+}
