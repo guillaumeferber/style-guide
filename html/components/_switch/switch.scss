@@ -1,7 +1,22 @@
+
 .c-switch {
     $green: #69dd6b;
     $red: #f44935;
-
+    $defaultSize: 16px;
+    &--large {
+        .c-switch__check {
+            overflow: visible;
+            &:before {
+                height: $defaultSize*1.5; width: $defaultSize*1.5;
+                left: -2px; top: -2px;
+                box-shadow: -1px 0 4px 0 scale-color(#fff, $lightness: -15%);
+            }
+        }
+        input[type=checkbox]:checked ~ .c-switch__check:before {
+            transform: translateX(22px);
+            box-shadow: 1px 0 4px 0 scale-color(#fff, $lightness: -15%);
+        }
+    }
     &__check {
         display: block;
         position: relative;
@@ -10,36 +25,27 @@
         cursor: pointer;
         height: 20px; width: 40px;
         overflow: hidden;
-        transition: background-color .5s ease-out;
-        &:before,
-        &:after {
+        transition: background-color .3s ease-in;
+        &:before {
             position: absolute;
             content: "";
-            height: 16px; width: 16px;
+            height: $defaultSize; width: $defaultSize;
             border-radius: 50%;
-            top: 2px;
-            transition: transform .5s ease;
-        }
-        &:before {
             left: 2px;
+            top: 2px;
             background-color: #fff;
-        }
-        &:after {
-            background-color: #fff;
-            right: 2px;
-            transform: translateX(50px);
+            transition: transform .25s cubic-bezier(0.87, 0, 0.13, 1);
         }
     }
 
     input[type=checkbox] {
-        appearance: none;
+        -webkit-appearance: none;
         visibility: hidden;
         opacity: 0;
 
         &:checked ~ .c-switch__check {
             background-color: $red;
-            &:before { transform: translateX(-50px); }
-            &:after { transform: translateX(0); }
+            &:before { transform: translateX(20px); }
         }
     }
 }

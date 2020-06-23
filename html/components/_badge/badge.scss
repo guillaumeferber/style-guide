@@ -1,13 +1,54 @@
 .c-badge {
-    &::before {
-        display: table;
-        content: '';
-        position: relative;
-    }
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    border-radius: 50%;
-    padding: 5px;
+    $blue: #10487B;
+    $red: #b30015;
+    $grey: #ddd;
+    $green: #84C954;
+    $light-grey: #ACBCC8;
+    $yellow: rgb(255, 174, 0);
+    $black: #1a1a1a;
+    $white: #eee;
+    $defaultLightenValue: 15%;
+    position: relative;
+
+    content: '';
+    display: inline-block;
+    top: -8px;
+    right: 0;
+    padding: 6px 8px;
     text-align: center;
+    border: 1px solid transparent;
+    z-index: 10;
+    color: $white;
+    border-radius: 20px;
+    font: 700 .75rem/1 var(--sans-serif), Arial, sans-serif;
+
+    &--primary { background-color: lighten($blue, $defaultLightenValue); }
+    &--secondary {
+        background-color: $white;
+        border-color: $grey;
+        color: scale-color($black, $lightness: 30%);
+    }
+    &--danger {
+        background-color: lighten($red, $defaultLightenValue);
+        border-color: lighten($red, $defaultLightenValue);
+     }
+    &--success { background-color: $green; }
+    &--warning { background-color: $yellow; }
+    &--info {
+        background-color: $light-grey;
+        color: $black;
+    }
+    &--light {
+        background-color: $grey;
+        color: scale-color($white, $lightness: -50%);
+        font-weight: 400;
+    }
+    &--dark { background-color: $black; }
+
+    .c-button &,
+    button & {
+        top: 0;
+        border-radius: 0;
+        font-weight: 700;
+    }
 }

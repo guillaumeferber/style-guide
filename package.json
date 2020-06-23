@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp build",
+    "push": "gulp build && git add -A && git commit -m 'Update Components' && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Guillaume Ferber",
