@@ -1,6 +1,6 @@
 {
   "name": "phantom-style-guide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Phantom Style Guide",
   "main": "gulpfile.js",
   "scripts": {

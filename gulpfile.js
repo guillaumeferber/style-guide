@@ -21,7 +21,8 @@ const configuration = {
     html: '.html',
     sass: '.scss',
     css: '.css',
-    js: '.js'
+    js: '.js',
+    pug: '.pug'
   },
   configFiles: [
     './service-worker.js',
@@ -99,7 +100,8 @@ const html = {
     return del([
       `${configuration.folders.dest}/**/*`
     ]);
-  }
+  },
+
 }
 
 const css = () => {

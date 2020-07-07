@@ -70,18 +70,20 @@ form,
             position: absolute;
             top: calc(50% - 8px); left: 0;
             display: inline-block;
-            height: 18px; width: 18px;
+            height: 20px; width: 20px;
         }
         &:before {
             content: '';
-            border: 1px solid $grey;
+            border: 2px solid $grey;
+             border-radius: 3px;
         }
         &:after {
-            font-size: 100%;
+            font-size: 110%;
             height: 12px; width: 12px;
-            content: '\2714';
-            top: calc(50% - 10px); left: .2rem;
-            color: lighten($black, 25%);
+            content: '\2713\0020';
+            font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+            top: calc(50% - 12px); left: .25rem;
+            color: #09ad7e;
             opacity: 0;
             visibility: hidden;
             transition: all .15s ease-out 0s;

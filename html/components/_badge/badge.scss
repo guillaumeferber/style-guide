@@ -8,7 +8,7 @@
     $black: #1a1a1a;
     $white: #eee;
     $defaultLightenValue: 15%;
-    position: relative;
+    position: absolute;
 
     content: '';
     display: inline-block;
@@ -22,6 +22,9 @@
     border-radius: 20px;
     font: 700 .75rem/1 var(--sans-serif), Arial, sans-serif;
 
+    &--large {
+        font-size: 2rem;
+    }
     &--primary { background-color: lighten($blue, $defaultLightenValue); }
     &--secondary {
         background-color: $white;
@@ -47,8 +50,8 @@
 
     .c-button &,
     button & {
+        position: relative;
         top: 0;
-        border-radius: 0;
         font-weight: 700;
     }
 }
