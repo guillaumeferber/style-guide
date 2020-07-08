@@ -1,0 +1,41 @@
+
+.c-music-pad {
+    flex: 1;
+    min-height: 50px;
+    width: 100%;
+    &--pink {
+        background: hotpink;
+        &:active,
+        &:focus {
+            background: darken(hotpink, 8%);
+        }
+    }
+    &--blue {
+        background: #01759F;
+        &:active,
+        &:focus {
+            background: darken(#01759F, 8%);
+        }
+    }
+    &--yellow {
+        background: yellow;
+        &:active,
+        &:focus {
+            background: darken(yellow, 8%);
+        }
+    }
+    &--orange {
+        background: #FE710E;
+        &:active,
+        &:focus {
+            background: darken(#FE710E, 8%);
+        }
+    }
+    &--turquoise {
+        background: turquoise;
+        &:active,
+        &:focus {
+            background: darken(turquoise, 8%);
+        }
+    }
+}

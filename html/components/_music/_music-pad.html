@@ -1,0 +1,76 @@
+<div class="c-music-pad c-music-pad--pink js-music" data-color="pink"></div>
+<div class="c-music-pad c-music-pad--blue js-music" data-color="blue"></div>
+<div class="c-music-pad c-music-pad--yellow js-music" data-color="yellow"></div>
+<div class="c-music-pad c-music-pad--orange js-music" data-color="orange"></div>
+<div class="c-music-pad c-music-pad--turquoise js-music" data-color="turquoise"></div>
+<script>
+    var MusicPadModule = (function(win) {
+        'use strict';
+        var _config = {};
+        function _addConfig(selector) {
+            _config.doc = win.document;
+            _config.selector = selector;
+        }
+
+        function _init(selector) {
+            _addConfig(selector);
+            _addEventListeners();
+        }
+
+        function _addEventListeners() {
+            var selectorList = _getSelectors();
+            Object.keys(selectorList).map(function(selectorIdx) {
+                selectorList[selectorIdx].addEventListener('click', _onElementClick, false);
+            });
+        }
+
+        function _onElementClick(e) {
+            var color = _getColor(e);
+        }
+
+        function _getSelectors() {
+            return _config.doc.querySelectorAll('[' + _config.selector + ']');
+        }
+
+        function _getColor(item) {
+            var reg = /(rgb\()?(\))?/gmi;
+            var color = win.getComputedStyle(item.target, null).getPropertyValue('background-color').replace(reg, '').split(',');
+
+            console.log(color);
+
+            //return item.style.backgroundColor;
+        }
+
+
+        function rgbToHsl(r, g, b) {
+            r /= 255, g /= 255, b /= 255;
+
+            var max = Math.max(r, g, b), min = Math.min(r, g, b);
+            var h, s, l = (max + min) / 2;
+
+            if (max == min) {
+            h = s = 0; // achromatic
+            } else {
+            var d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+            switch (max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+
+            h /= 6;
+            }
+
+            return [ h, s, l ];
+        }
+
+        return {
+            init: _init
+        }
+    })(window);
+    var musicPlayer = MusicPadModule;
+    musicPlayer.init('data-color');
+
+</script>
