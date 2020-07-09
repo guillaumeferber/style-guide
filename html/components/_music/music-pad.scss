@@ -1,41 +1,76 @@
-
-.c-music-pad {
-    flex: 1;
-    min-height: 50px;
+.c-music-pad-group {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
     width: 100%;
-    &--pink {
-        background: hotpink;
-        &:active,
-        &:focus {
-            background: darken(hotpink, 8%);
-        }
+    background: #fff;
+}
+.c-music-pad {
+    flex: 1 0 auto;
+    height: 25vh;
+    width: 25%;
+    cursor: pointer;
+    overflow: hidden;
+    animation: fadeIn .35s linear .25s normal;
+}
+
+.c-music-pad__effect {
+    display: block;
+    position: absolute;
+    content: '';
+    height: 40px; width: 40px;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0;
+    background-color: #fff;
+    animation-name: explode;
+    animation-duration: .25s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+@keyframes explode {
+    from {
+        transform: scaleX(1) scaleY(1);
+        opacity: .8;
     }
-    &--blue {
-        background: #01759F;
-        &:active,
-        &:focus {
-            background: darken(#01759F, 8%);
-        }
+    to {
+        transform: scaleX(4.5) scaleY(4.5);
+        opacity: 0;
     }
-    &--yellow {
-        background: yellow;
-        &:active,
-        &:focus {
-            background: darken(yellow, 8%);
-        }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(.5);
     }
-    &--orange {
-        background: #FE710E;
-        &:active,
-        &:focus {
-            background: darken(#FE710E, 8%);
-        }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
-    &--turquoise {
-        background: turquoise;
-        &:active,
-        &:focus {
-            background: darken(turquoise, 8%);
+}
+
+.c-close-button {
+    position: fixed;
+    right: 2em; top: 2em;
+    a {
+        display: inline-block;
+        height: 32px; width: 32px;
+        border-radius: 50%;
+        text-align: center;
+        font-weight: 700;
+        padding-top: 3px;
+        text-decoration: none;
+        background-color: #fff;
+        transition: all .15s ease;
+        color: #000;
+        box-shadow: 0 2px 7px 3px rgba(grey, .3);
+        &:hover {
+            box-shadow: 0 2px 12px 4px rgba(grey, .3);
         }
+
     }
 }
