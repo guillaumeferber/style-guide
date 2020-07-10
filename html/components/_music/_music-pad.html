@@ -5,25 +5,28 @@
         'use strict';
         var _config = {};
         function _addConfig() {
-            _config.doc = win.document;
-            _config.selector = 'data-color';
-            _config.colorList = 'abcdef0123456789'.split('');
-            _config.colorSoundList = [
-                { freq: 349.2, color: [ 0, 100, 32 ] },
-                { freq: 370, color: [ 0, 100, 45 ] },
-                { freq: 392, color: [ 0, 100, 70 ] },
-                { freq: 415.3, color: [ 0, 100, 93 ] },
-                { freq: 440, color: [ 23, 100, 100 ] },
-                { freq: 466.2, color: [ 56, 100, 100 ] },
-                { freq: 493.9, color: [ 84, 100, 100 ] },
-                { freq: 523.2, color: [ 111, 100, 100 ] },
-                { freq: 554.4, color: [ 175, 100, 100 ] },
-                { freq: 587.3, color: [ 211, 100, 100 ] },
-                { freq: 622.2, color: [ 241, 100, 100 ] },
-                { freq: 659.3, color: [ 258, 100, 92 ] },
-                { freq: 698.5, color: [ 273, 100, 62 ] }
-            ];
-            _config.reg = /(rgb\()?(\))?/gmi;
+            _config = {
+                doc: win.document,
+                selector: 'data-color',
+                colorList: 'abcdef0123456789'.split(''),
+                grid: 12,
+                colorSoundList: [
+                    { freq: 349.2, color: [ 0, 100, 32 ] },
+                    { freq: 370, color: [ 0, 100, 45 ] },
+                    { freq: 392, color: [ 0, 100, 70 ] },
+                    { freq: 415.3, color: [ 0, 100, 93 ] },
+                    { freq: 440, color: [ 23, 100, 100 ] },
+                    { freq: 466.2, color: [ 56, 100, 100 ] },
+                    { freq: 493.9, color: [ 84, 100, 100 ] },
+                    { freq: 523.2, color: [ 111, 100, 100 ] },
+                    { freq: 554.4, color: [ 175, 100, 100 ] },
+                    { freq: 587.3, color: [ 211, 100, 100 ] },
+                    { freq: 622.2, color: [ 241, 100, 100 ] },
+                    { freq: 659.3, color: [ 258, 100, 92 ] },
+                    { freq: 698.5, color: [ 273, 100, 62 ] }
+                ],
+                reg: /(rgb\()?(\))?/gmi
+            }
         }
 
         function _getClosestColor(goal) {
@@ -41,7 +44,7 @@
             })
         }
 
-        function _init(iterations) {
+        function init(iterations) {
             _addConfig();
             _initGrid(iterations);
             _addEventListeners();
@@ -51,7 +54,6 @@
             var selectorList = _getSelectors();
             Object.keys(selectorList).map(function(selectorIdx) {
                 selectorList[selectorIdx].addEventListener('click', _onElementClick, false);
-                selectorList[selectorIdx].addEventListener('touchstart', _onElementClick, false);
             });
         }
 
@@ -138,6 +140,7 @@
             for(var i = 0; i < iterations; i++) {
                 var element = _config.doc.createElement('div');
                 element.classList.add('c-music-pad');
+                element.style.width = (100 / (iterations >= _config.grid ? _config.grid : iterations)) + 'vw';
                 element.dataset.color = _generateHexCodeColor();
                 element.style.background = element.dataset.color;
                 group.appendChild(element);
@@ -145,10 +148,10 @@
         }
 
         return {
-            init: _init
+            init: init
         }
     })(window);
     var musicPlayer = MusicPadModule;
-    musicPlayer.init(17);
+    musicPlayer.init(55);
 
 </script>
