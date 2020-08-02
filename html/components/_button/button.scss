@@ -18,7 +18,7 @@ button.c-button,
       font-weight: 300;
       font-size: 1rem;
       line-height: 1.5;
-      color: #fff;
+      color: var(--white);
       text-transform: capitalize;
       margin-bottom: 1rem;
       margin-right: 1rem;
@@ -53,13 +53,13 @@ button.c-button,
     }
 
     &--outline {
-      background-color: #fff;
+      background-color: var(--white);
       border-color: lighten($blue, $defaultLightenValue);
       color: lighten($blue, $defaultLightenValue);
       &:hover {
         background-color: $blue;
         border-color: $blue;
-        color: #fff;
+        color: var(--white);
       }
     }
 
@@ -83,7 +83,7 @@ button.c-button,
     }
 
     &--secondary {
-      background-color: #fff;
+      background-color: var(--white);
       border-color: $grey;
       color: inherit;
       &:hover {
@@ -120,7 +120,7 @@ button.c-button,
     }
 
     &--disabled {
-      background-color: #fff;
+      background-color: var(--white);
       border-color: $light-grey;
       color: $light-grey;
       box-shadow: none;
@@ -128,7 +128,7 @@ button.c-button,
       cursor: not-allowed;
       pointer-events: none;
       &:hover {
-        background-color: #fff;
+        background-color: var(--white);
         color: $light-grey;
         border-color: $light-grey;
         box-shadow: none;
