@@ -1,35 +1,45 @@
 .c-collapse {
-    $blue: #10487B;
-    $red: #b30015;
-    $grey: #ddd;
-    $green: #84C954;
-    $light-grey: #ACBCC8;
-    $yellow: rgb(255, 174, 0);
-    $black: #1a1a1a;
-    $defaultLightenValue: 15%;
     position: relative;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
     align-items: center;
-    padding: 10px;
-    margin-bottom: 1rem;
-    font-size: 20px;
+    padding: 1em;
+    margin-top: 1em;
+    font-size: inherit;
     transition: all .25s ease-in-out 0s;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -.5em;
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: var(--color-grey-200, #eee);
+    }
+
     summary {
         position: relative;
         display: list-item;
         cursor: pointer;
         outline: none;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         font-weight: 400;
-        color: $black;
+        color: var(--color-black, #000);
         transition: all .25s ease-in-out 0s;
-        &::-webkit-details-marker { display: none }
+
+        &::-webkit-details-marker,
+        &::marker {
+            display: none;
+            content: "";
+        }
+
         &::after,
-        &::before { transition: all .25s ease-in-out 0s; }
+        &::before {
+            transition: all .25s ease-in-out 0s;
+        }
+
         &::before {
             position: absolute;
             display: block;
@@ -40,42 +50,38 @@
             -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
         }
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -20px;
-            display: block;
-            height: 1px;
-            width: 100%;
-            background-color: #eee;
-        }
-
     }
 
-    &[open] summary::before {
-        content: "╲";
-        transform: rotate(-45deg)
+    &[open] summary {
+        &::before {
+            content: "╲";
+            transform: rotate(-45deg);
+        }
     }
 
     &__body {
         position: relative;
-        height: 0;
-        padding-top: 40px;
-        font-size: 1rem;
+        padding: 2em 0;
+        font-size: 1.6rem;
         z-index: 0;
     }
 
     &[open] {
         .c-collapse__body {
             animation: sweep .5s ease-in-out;
-            height: 100%;
         }
     }
 }
 
 
 @keyframes sweep {
-    0%    {opacity: 0; transform: translateY(-10px)}
-    100%  {opacity: 1; transform: translateY(0)}
+    0% {
+        opacity: 0;
+        transform: translateY(-10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
 }

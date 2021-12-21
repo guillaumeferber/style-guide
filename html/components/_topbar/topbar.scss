@@ -2,65 +2,62 @@ $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 $white: #fff;
 $breakpoint-small: 39.9375em;
-@mixin breakpoint($size) {
+
+@mixin breakpoint-topbar($size) {
     @media screen and (max-width: $size) {
         @content;
     }
 }
+
 .c-backdrop {
     display: none;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100%;
-    background-color: rgba(#000, .3);
-    z-index: -1;
+    background-color: var(--black, #000);
+    opacity: .3;
+    z-index: 1;
 
 }
-.c-topbar {
-    position: relative;
-    display: flex;
-    align-items: center;
 
-    @include breakpoint($breakpoint-small) {
+.c-topbar {
+    @include breakpoint-topbar($breakpoint-small) {
         position: fixed;
-        top: 0; left: 0;
+        top: 0;
+        left: 0;
         width: 80vw;
         z-index: 10;
 
         &__title {
             position: relative;
 
-            @include breakpoint($breakpoint-small) {
+            @include breakpoint-topbar($breakpoint-small) {
                 padding-top: 3rem;
                 text-align: center;
             }
+
             span {
                 position: absolute;
                 right: 0;
-                border: 1px solid $white;
+                border: 1px solid var(--white, #fff);
                 border-radius: 5px;
                 padding: 0.25rem 0.45rem;
                 top: 50%;
                 transform: translateY(-50%);
             }
         }
-        & ~ main {
-            position: absolute;
-            top: 0; left: 0;
-        }
     }
 
-    font: 400 1rem/1 var(--sans-serif), Arial, Helvetica, sans-serif;
     &__menu {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
-        height: auto;
         background: $topbar-responsive-bg;
-        padding: 1rem 1.5rem;
-        @include breakpoint($breakpoint-small) {
+        padding: 1rem var(--container-side-margin-default, 2.4rem);
+
+        @include breakpoint-topbar($breakpoint-small) {
             width: 0;
             height: 100vh;
             flex-direction: column;
@@ -68,45 +65,54 @@ $breakpoint-small: 39.9375em;
             padding: 0;
             align-items: flex-start;
             transition: width .6s ease-out 0s;
+
             & * {
                 display: none;
             }
         }
     }
+
     &__logo {
         color: $white;
         vertical-align: middle;
     }
 }
+
 .c-topbar__links {
-    @include breakpoint($breakpoint-small) {
+    @include breakpoint-topbar($breakpoint-small) {
         width: 100%;
     }
 }
+
 .c-menu {
     list-style: none;
     background: $topbar-responsive-bg;
     display: flex;
     align-items: center;
-    padding: 0; margin: 0;
-    @include breakpoint($breakpoint-small) {
+    padding: 0;
+    margin: 0;
+
+    @include breakpoint-topbar($breakpoint-small) {
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
     }
+
     li:last-of-type {
         margin-right: 0;
     }
 
-    & > li {
-        & + li {
+    &>li {
+        &+li {
             margin-left: 1.2rem;
-            @include breakpoint($breakpoint-small) {
+
+            @include breakpoint-topbar($breakpoint-small) {
                 margin-left: 0;
                 margin-top: 1rem;
             }
-         }
-        & > a {
+        }
+
+        &>a {
             color: $white;
             transition: color 0.15s ease-in;
 
@@ -115,10 +121,10 @@ $breakpoint-small: 39.9375em;
                 color: lighten($topbar-responsive-bg, 60%);
             }
 
-            @include breakpoint($breakpoint-small) {
+            @include breakpoint-topbar($breakpoint-small) {
                 padding: 0.875rem 0;
             }
-          }
+        }
     }
 
 }
@@ -126,33 +132,42 @@ $breakpoint-small: 39.9375em;
 // hamburger menu
 .c-menu-icon {
     position: absolute;
-    top: 1rem; left: 1rem;
+    top: 1rem;
+    left: 1rem;
     display: none;
+
     &--checkbox {
         position: absolute;
         left: -9999px;
         opacity: 0;
         visibility: hidden;
+
         &:checked {
-            & ~ .c-menu-icon--label span,
-            & ~ .c-menu-icon--label span::after,
-            & ~ .c-menu-icon--label span::before {
+
+            &~.c-menu-icon--label span,
+            &~.c-menu-icon--label span::after,
+            &~.c-menu-icon--label span::before {
                 background-color: #fff;
             }
-            & ~ .c-backdrop {
+
+            &~.c-backdrop {
                 display: block;
             }
-            & ~ .c-topbar__menu {
+
+            &~.c-topbar__menu {
                 width: 100%;
                 padding: 1rem 1.5rem;
-                box-shadow: 1px 0px 7px 1px rgba(0,0,0,.4);
+                box-shadow: 1px 0px 7px 1px rgba(0, 0, 0, .4);
+
                 & * {
                     display: block;
                 }
+
                 .c-topbar__title {
                     text-align: center;
                     width: 100%;
                 }
+
                 .c-menu {
                     padding-top: 2rem;
                     padding-left: 1rem;
@@ -160,16 +175,20 @@ $breakpoint-small: 39.9375em;
             }
         }
     }
+
     &--label {
         margin-bottom: 4px;
+
         span {
             $defaultMenuBarMargin: 8px;
             height: 3px;
             background-color: $topbar-responsive-bg;
             width: 24px;
             position: absolute;
-            top: 1rem; left: 1rem;
+            top: 1rem;
+            left: 1rem;
             z-index: 3;
+
             &::before,
             &::after {
                 display: block;
@@ -177,10 +196,12 @@ $breakpoint-small: 39.9375em;
                 content: '';
                 top: -$defaultMenuBarMargin;
                 left: 0;
-                height: 3px; width: 24px;
+                height: 3px;
+                width: 24px;
                 background-color: $topbar-responsive-bg;
                 z-index: 3;
             }
+
             &::before {
                 top: $defaultMenuBarMargin;
             }
@@ -188,6 +209,8 @@ $breakpoint-small: 39.9375em;
     }
 }
 
-@include breakpoint($breakpoint-small) {
-    .c-menu-icon { display: inline-block; }
+@include breakpoint-topbar($breakpoint-small) {
+    .c-menu-icon {
+        display: inline-block;
+    }
 }

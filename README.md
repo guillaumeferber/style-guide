@@ -1,4 +1,4 @@
-# Phantom Style Guide
+# Style Guide
 
 This repository contains our style guides for HTML-CSS reusable components.
 

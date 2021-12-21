@@ -1,31 +1,37 @@
 button.c-button,
 .c-button {
-  $blue: #10487B;
-  $red: #b30015;
-  $grey: #ddd;
-  $green: #84C954;
-  $light-grey: #ACBCC8;
-  $yellow: rgb(255, 174, 0);
-  $black: #1a1a1a;
-  $defaultLightenValue: 15%;
+  --background-color: var(--color-white, #fff);
+  --border-color: var(--black, #000);
+  --color: var(--black, #000);
+
   &,
   &:link,
   &:visited {
-      outline: none;
-      position: relative;
-      padding: 6px 12px;
-      font-family: var(--sans-serif), Arial, Helvetica Neue, sans-serif;
-      font-weight: 300;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--white);
-      text-transform: capitalize;
-      margin-bottom: 1rem;
-      margin-right: 1rem;
-      vertical-align: middle;
-      border: 1px solid transparent;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: none;
+    position: relative;
+    padding: .8rem 1.4rem;
+    font-family: var(--font-family-base), Arial, Helvetica Neue;
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: var(--color);
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    border: 1px solid var(--border-color);
+    ;
+    background-color: var(--background-color);
+    text-decoration: none;
+
+    &>* {
+      margin-left: .5rem;
+    }
   }
+
   &--medium {
+
     &,
     &:link,
     &:visited {
@@ -36,6 +42,7 @@ button.c-button,
   }
 
   &--large {
+
     &,
     &:link,
     &:visited {
@@ -44,99 +51,123 @@ button.c-button,
       line-height: 1.5;
     }
   }
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-        outline: none;
-        text-decoration: none;
-    }
 
-    &--outline {
-      background-color: var(--white);
-      border-color: lighten($blue, $defaultLightenValue);
-      color: lighten($blue, $defaultLightenValue);
-      &:hover {
-        background-color: $blue;
-        border-color: $blue;
-        color: var(--white);
-      }
-    }
+  &--rounded {
 
-    &--primary {
-      background-color: lighten($blue, $defaultLightenValue);
-      border-color: lighten($blue, $defaultLightenValue);
-      &:hover {
-        background-color: $blue;
-        border-color: $blue;
-      }
+    &,
+    &:link,
+    &:visited {
+      border-radius: .4em;
     }
+  }
 
-    &--link {
-      background-color: transparent;
-      color: inherit;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    outline: none;
+    text-decoration: none;
+  }
+
+  &--outline {
+    --background-color: var(--color-white, #fff);
+    --border-color: var(--color-blue-200, #448aff);
+    --color: var(--color-blue-200, #448aff);
+
+    &:hover {
+      --background-color: var(--color-blue-400, #2979ff);
+      --border-color: var(--color-blue-400, #2979ff);
+      --color: var(--color-white, #fff);
+    }
+  }
+
+  &--primary {
+    --background-color: var(--color-blue-200, #448aff);
+    --border-color: var(--color-blue-200, #448aff);
+    --color: var(--color-white, #fff);
+
+    &:hover {
+      --background-color: var(--color-blue-400, #2979ff);
+      --border-color: var(--color-blue-400, #2979ff);
+      --color: var(--color-white, #fff);
+    }
+  }
+
+  &--link {
+    --background-color: transparent;
+    --color: inherit;
+    --border-color: transparent;
+    text-decoration: underline;
+    box-shadow: none;
+
+    &:hover {
+      --color: inherit;
+      --background-color: transparent;
+    }
+  }
+
+  &--secondary {
+    --background-color: var(--color-white, #fff);
+    --border-color: var(--color-grey-400, #bdbdbd);
+    --color: inherit;
+
+    &:hover {
+      --background-color: var(--color-grey-400, #bdbdbd);
+      --border-color: var(--color-grey-400, #bdbdbd);
+    }
+  }
+
+  &--success {
+    --background-color: var(--color-green-400, #00e676);
+    --border-color: var(--color-green-400, #00e676);
+
+    &:hover {
+      --background-color: var(--color-green-700, #00c853);
+      --border-color: var(--color-green-700, #00c853);
+    }
+  }
+
+  &--danger {
+    --background-color: var(--color-red-400, #ff1744);
+    --border-color: var(--color-red-400, #ff1744);
+    --color: var(--color-white, #fff);
+
+    &:hover {
+      --background-color: var(--color-red-700, #d50000);
+      --border-color: var(--color-red-700, #d50000);
+      --color: var(--color-white, #fff);
+    }
+  }
+
+  &--warning {
+    --background-color: var(--color-yellow-400, #ffea00);
+    --border-color: var(--color-yellow-400, #ffea00);
+
+    &:hover {
+      --background-color: var(--color-yellow-700, #ffd600);
+      --border-color: var(--color-yellow-700, #ffd600);
+    }
+  }
+
+  &--disabled {
+    --background-color: var(--color-white, #fff);
+    --border-color: var(--color-grey-400, #bdbdbd);
+    --color: var(--color-grey-400, #bdbdbd);
+    box-shadow: none;
+    opacity: .7;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:hover {
+      --background-color: var(--color-white, #fff);
+      --color: var(--color-grey-200, #eee);
+      --border-color: var(--color-grey-200, #eee);
       box-shadow: none;
-      &:hover {
-        color: lighten($blue, $defaultLightenValue);
-        background-color: transparent;
-      }
     }
+  }
 
-    &--secondary {
-      background-color: var(--white);
-      border-color: $grey;
-      color: inherit;
-      &:hover {
-        background-color: $grey;
-        border-color: $grey;
-      }
-    }
-
-    &--success {
-      background-color: $green;
-      border-color: $green;
-      &:hover {
-        background-color: darken($green, $defaultLightenValue);
-        border-color: darken($green, $defaultLightenValue);
-      }
-    }
-
-    &--danger {
-      background-color: lighten($red, $defaultLightenValue);
-      border-color: lighten($red, $defaultLightenValue);
-      &:hover {
-        background-color: $red;
-        border-color: $red;
-      }
-    }
-
-    &--warning {
-      background-color: lighten($yellow, $defaultLightenValue);
-      border-color:  lighten($yellow, $defaultLightenValue);
-      &:hover {
-        background-color: $yellow;
-        border-color: $yellow;
-      }
-    }
-
-    &--disabled {
-      background-color: var(--white);
-      border-color: $light-grey;
-      color: $light-grey;
-      box-shadow: none;
-      opacity: .7;
-      cursor: not-allowed;
-      pointer-events: none;
-      &:hover {
-        background-color: var(--white);
-        color: $light-grey;
-        border-color: $light-grey;
-        box-shadow: none;
-      }
-    }
-
-    &--topbar {
-      margin-bottom: 0;
-    }
+  &--topbar {
+    margin-bottom: 0;
+  }
 
 }

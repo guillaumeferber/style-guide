@@ -1,57 +1,76 @@
 .c-badge {
-    $blue: #10487B;
-    $red: #b30015;
-    $grey: #ddd;
-    $green: #84C954;
-    $light-grey: #ACBCC8;
-    $yellow: rgb(255, 174, 0);
-    $black: #1a1a1a;
-    $white: #eee;
-    $defaultLightenValue: 15%;
+    --background-color: var(--color-white, #fff);
+    --color: var(--color-black, #000);
+    --font-weight: 400;
+    --border-color: transparent;
     position: absolute;
-
     content: '';
     display: inline-block;
     top: -8px;
     right: 0;
-    padding: 6px 8px;
+    padding: .3em .6em;
     text-align: center;
-    border: 1px solid transparent;
+    background: var(--background-color);
     z-index: 10;
-    color: $white;
-    border-radius: 20px;
-    font: 700 .75rem/1 var(--sans-serif), Arial, sans-serif;
+    color: var(--color);
+    border-radius: 2.4em;
+    font-size: var(--font-size-sm, 1.1rem);
+    line-height: 1.1;
+    font-weight: var(--font-weight);
+    border: 1px solid var(--border-color);
 
     &--large {
         font-size: 2rem;
     }
-    &--primary { background-color: lighten($blue, $defaultLightenValue); }
-    &--secondary {
-        background-color: $white;
-        border-color: $grey;
-        color: scale-color($black, $lightness: 30%);
-    }
-    &--danger {
-        background-color: lighten($red, $defaultLightenValue);
-        border-color: lighten($red, $defaultLightenValue);
-     }
-    &--success { background-color: $green; }
-    &--warning { background-color: $yellow; }
-    &--info {
-        background-color: $light-grey;
-        color: $black;
-    }
-    &--light {
-        background-color: $grey;
-        color: scale-color($white, $lightness: -50%);
-        font-weight: 400;
-    }
-    &--dark { background-color: $black; }
 
-    .c-button &,
-    button & {
+    &--float {
+        right: -25%;
+        box-shadow: -1px 1px 3px -1px var(--color-black, #000);
+    }
+
+    &--primary {
+        --background-color: var(--color-blue-200, #448aff);
+        --color: var(--color-white, #fff);
+    }
+
+    &--secondary {
+        --background-color: var(--color-white, #fff);
+        --color: inherit;
+        --border-color: var(--color-grey-400, #bdbdbd);
+    }
+
+    &--danger {
+        --background-color: var(--color-red-400, #ff1744);
+        --color: var(--color-white, #fff);
+    }
+
+    &--success {
+        --background-color: var(--color-green-400, #00e676);
+    }
+
+    &--warning {
+        --background-color: var(--color-yellow-400, #ffea00);
+    }
+
+    &--info {
+        --background-color: var(--color-grey-400, #bdbdbd);
+    }
+
+    &--light {
+        --background-color: var(--color-grey-200, #eeeeee);
+        --color: var(--color-grey-700, #616161);
+        --font-weight: 400;
+    }
+
+    &--dark {
+        --background-color: var(--black, #000);
+        --color: var(--color-white, #fff);
+    }
+
+    .c-button &:not(.c-badge--float),
+    button &:not(.c-badge--float) {
         position: relative;
         top: 0;
-        font-weight: 700;
+        --font-weight: initial;
     }
 }

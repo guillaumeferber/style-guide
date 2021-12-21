@@ -2,8 +2,9 @@ main {
 	width: 100%;
 	padding: 0 5px;
 }
+
 article {
-	margin: $marginRegular auto;
+	margin: var(--margin-regular, 80px) auto;
 	width: 100%;
 
 	@media screen and (min-width: 50rem) {

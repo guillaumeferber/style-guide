@@ -1,41 +1,50 @@
-
 .c-switch {
-    $green: #69dd6b;
-    $red: #f44935;
-    $defaultSize: 16px;
     &--large {
         .c-switch__check {
             overflow: visible;
+
             &:before {
-                height: $defaultSize*1.5; width: $defaultSize*1.5;
-                left: -2px; top: -2px;
-                box-shadow: -1px 0 4px 0 scale-color(#fff, $lightness: -15%);
+                height: 1.6rem*1.5;
+                width: 1.6rem*1.5;
+                left: -.2rem;
+                top: -.2rem, ;
+                box-shadow: -.1em 0 .4em 0 scale-color(#fff, $lightness: -15%);
             }
         }
-        input[type=checkbox]:checked ~ .c-switch__check:before {
-            transform: translateX(22px);
-            box-shadow: 1px 0 4px 0 scale-color(#fff, $lightness: -15%);
+
+        input[type=checkbox]:checked~.c-switch__check:before {
+            transform: translateX(2.2rem);
+            box-shadow: .1em 0 .4em 0 scale-color(#fff, $lightness: -15%);
         }
     }
+
     &__check {
         display: block;
         position: relative;
-        border-radius: 20px;
-        background-color: $green;
+        border-radius: 2rem;
+        background-color: var(--color-green-400, #00e676);
         cursor: pointer;
-        height: 20px; width: 40px;
+        height: 2rem;
+        width: 4rem;
         overflow: hidden;
         transition: background-color .3s ease-in;
+
         &:before {
             position: absolute;
             content: "";
-            height: $defaultSize; width: $defaultSize;
+            height: 1.6rem;
+            width: 1.6rem;
             border-radius: 50%;
-            left: 2px;
-            top: 2px;
-            background-color: #fff;
+            left: .2rem;
+            top: .2rem;
+            background-color: var(--color-white, #fff);
             transition: transform .25s cubic-bezier(0.87, 0, 0.13, 1);
         }
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
     }
 
     input[type=checkbox] {
@@ -43,9 +52,12 @@
         visibility: hidden;
         opacity: 0;
 
-        &:checked ~ .c-switch__check {
-            background-color: $red;
-            &:before { transform: translateX(20px); }
+        &:checked~.c-switch__check {
+            background-color: var(--color-red-200, #ff5252);
+
+            &:before {
+                transform: translateX(2rem);
+            }
         }
     }
 }

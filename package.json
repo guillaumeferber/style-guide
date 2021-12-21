@@ -1,7 +1,7 @@
 {
-  "name": "phantom-style-guide",
+  "name": "style-guide",
   "version": "0.0.2",
-  "description": "Phantom Style Guide",
+  "description": "Style Guide",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp watch",
@@ -12,7 +12,7 @@
   "author": "Guillaume Ferber",
   "license": "MIT",
   "devDependencies": {
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.6.1",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
@@ -20,10 +20,11 @@
     "gulp-html-extend": "^1.1.6",
     "gulp-html-prettify": "0.0.1",
     "gulp-open": "^3.0.1",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.1",
     "gulp-uglify": "^3.0.2",
     "gulp-uncss": "^1.0.6",
-    "gulp-w3c-html-validator": "^2.0.0"
+    "gulp-w3c-html-validator": "^2.0.0",
+    "sass": "^1.45.1"
   },
   "dependencies": {
     "gulp-cssnano": "^2.1.3"

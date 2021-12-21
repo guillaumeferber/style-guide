@@ -1,8 +1,10 @@
+@use "sass:math";
 @use "sass:color";
+@use "sass:list";
+
 @mixin scrimGradient($direction: 'to bottom', $startColor: black) {
 
-    $scrimCoordinates: (
-      0: 1,
+  $scrimCoordinates: (0: 1,
       19: 0.738,
       34: 0.541,
       47: 0.382,
@@ -14,25 +16,30 @@
       91: 0.021,
       95.2: 0.008,
       98.2: 0.002,
-      100: 0
-    );
+      100: 0);
 
-    $hue: hue($startColor);
-    $saturation: saturation($startColor);
-    $lightness: lightness($startColor);
-    $stops: ();
+  $hue: hue($startColor);
+  $saturation: saturation($startColor);
+  $lightness: lightness($startColor);
+  $stops: ();
 
-    @each $colorStop, $alphaValue in $scrimCoordinates {
-      $stop: hsla($hue, $saturation, $lightness, $alphaValue) percentage($colorStop/100);
+  @each $colorStop, $alphaValue in $scrimCoordinates {
+    $value: $colorStop;
 
-      $stops: append($stops, $stop, comma);
+    @if $colorStop != 0 {
+      $value: $colorStop / 100;
     }
+    $stop: hsla($hue, $saturation, $lightness, $alphaValue) percentage($value);
 
-    background: linear-gradient(unquote($direction), $stops);
-
+    $stops: append($stops, $stop, comma);
   }
+
+  background: linear-gradient(unquote($direction), $stops);
+
+}
+
 .u-gradient {
-    &--scrim {
-        @include scrimGradient();
-    }
+  &--scrim {
+    @include scrimGradient();
+  }
 }
