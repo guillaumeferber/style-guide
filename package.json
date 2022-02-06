@@ -1,13 +1,21 @@
 {
-  "name": "style-guide",
-  "version": "0.0.2",
+  "name": "@guillaumeferber/ui-kit",
+  "version": "0.0.3",
   "description": "Style Guide",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp watch",
-    "build": "gulp build",
-    "push": "gulp build && git add -A && git commit -m 'Update Components' && git push",
+    "cleanup": "rm -Rf dist",
+    "copy:config": "git add -A && git commit && git push && cp package_dist.json dist/package.json && cp README.md dist/ && cp .npmrc dist",
+    "version:patch": "cd dist/ && npm version patch && npm publish .",
+    "postpublish": "cp dist/package.json package_dist.json && npm run cleanup",
+    "build:publish": "npm run cleanup && gulp deploy && npm run copy:config && npm run version:patch && npm run postpublish",
+    "push": "gulp build && npm run commit && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guillaumeferber/style-guide.git"
   },
   "author": "Guillaume Ferber",
   "license": "MIT",
