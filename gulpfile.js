@@ -10,7 +10,6 @@ const uncss = require('gulp-uncss');
 const concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 // HTML
-const htmlValidator = require('gulp-w3c-html-validator');
 const prettify = require('gulp-html-prettify');
 const extender = require('gulp-html-extend');
 
@@ -72,12 +71,6 @@ const copyFolder = () => {
 }
 
 const html = {
-  validate() {
-    return src(configuration.folders.demo + '**/*' + configuration.extension.html)
-      .pipe(htmlValidator({skipWarnings: true}))
-      .pipe(htmlValidator.reporter())
-      .pipe(connect.reload());
-  },
   prettify() {
     return src(configuration.folders.demo + '*' + configuration.extension.html)
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
