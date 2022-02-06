@@ -1,54 +1,50 @@
-/* ==========================================================================
-    SquareLab UI Kit Style Guide
-   ========================================================================== */
-
 /**
- * SquareLab UI Kit Style Guide, by SquareLab
- * www.squarelab.ca
+ * Name: UI Kit
+ * Author: Guillaume Ferber
+ * URL: www.guillaumeferber.com
  * 
- * Initial work: Guillaume Ferber
- * Last updated: 2021-09-14
+ * Last updated: 2022-02-06
  */
 
 // Settings : Used with preprocessors and contain font, colors definitions, etc.
-@import "settings/colors";
-@import "settings/global";
+@import 'settings/colors';
+@import 'settings/global';
 
 // Tools : Globally used mixins and functions.
-@import "tools/functions";
-@import "tools/mixins";
+@import 'tools/functions';
+@import 'tools/mixins';
 
 // Generic : Reset and/or normalize styles, box-sizing definition, etc.
-@import "generic/normalize";
-@import "generic/box-sizing";
-@import "generic/reset";
-@import "generic/shared";
+@import 'generic/normalize';
+@import 'generic/box-sizing';
+@import 'generic/reset';
+@import 'generic/shared';
 
 // Elements : Styling for bare HTML elements (like h1, a, etc.).
-@import "elements/root";
-@import "elements/page";
-@import "elements/headings";
-@import "elements/forms";
-@import "elements/tables";
+@import 'elements/root';
+@import 'elements/page';
+@import 'elements/headings';
+@import 'elements/forms';
+@import 'elements/tables';
 
 // Objects : Class-based selectors which define undecorated design patterns.
-@import "objects/container";
+@import 'objects/container';
 
 // Layout : project specific file for demo
-@import "layout/section";
+@import 'layout/section';
 
 // Utilities : Helper classes with ability to override all previous styles.
-@import "utilities/alignment";
-@import "utilities/clear";
-@import "utilities/colors";
-@import "utilities/display";
-@import "utilities/flex";
-@import "utilities/float";
-@import "utilities/helper";
-@import "utilities/overflow";
-@import "utilities/position";
-@import "utilities/reset";
-@import "utilities/sizing";
-@import "utilities/spacing";
-@import "utilities/text";
-@import "utilities/visibility";
+@import 'utilities/alignment';
+@import 'utilities/clear';
+@import 'utilities/colors';
+@import 'utilities/display';
+@import 'utilities/flex';
+@import 'utilities/float';
+@import 'utilities/helper';
+@import 'utilities/overflow';
+@import 'utilities/position';
+@import 'utilities/reset';
+@import 'utilities/sizing';
+@import 'utilities/spacing';
+@import 'utilities/text';
+@import 'utilities/visibility';

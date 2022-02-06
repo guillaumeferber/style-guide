@@ -13,10 +13,7 @@
     "push": "gulp build && npm run commit && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/guillaumeferber/style-guide.git"
-  },
+  "repository": "git://github.com/guillaumeferber/style-guide.git",
   "author": "Guillaume Ferber",
   "license": "MIT",
   "devDependencies": {
