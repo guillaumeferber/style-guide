@@ -20,8 +20,7 @@ const configuration = {
     html: '.html',
     sass: '.scss',
     css: '.css',
-    js: '.js',
-    pug: '.pug'
+    js: '.js'
   },
   configFiles: [
     './service-worker.js',
