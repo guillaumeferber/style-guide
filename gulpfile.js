@@ -38,14 +38,14 @@ const configuration = {
     ],
     css: [
       "node_modules/bootstrap/scss/bootstrap.scss",
-      'styles/styles.scss',
+      'scss/styles.scss',
       'html/components/**/**/*.scss'
     ]
   },
   folders: {
     src: {
       html: 'html/',
-      css: 'styles/',
+      css: 'scss/',
       js: 'scripts/'
     },
     dest: './dist/'

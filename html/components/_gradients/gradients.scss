@@ -1,6 +1,6 @@
-@use "sass:math";
 @use "sass:color";
 @use "sass:list";
+@use "sass:math";
 
 @mixin scrimGradient($direction: 'to bottom', $startColor: black) {
 
@@ -23,12 +23,14 @@
   $lightness: lightness($startColor);
   $stops: ();
 
-  @each $colorStop, $alphaValue in $scrimCoordinates {
+  @each $colorStop,
+  $alphaValue in $scrimCoordinates {
     $value: $colorStop;
 
-    @if $colorStop != 0 {
-      $value: $colorStop / 100;
+    @if $colorStop !=0 {
+      $value: math.div($colorStop, 100);
     }
+
     $stop: hsla($hue, $saturation, $lightness, $alphaValue) percentage($value);
 
     $stops: append($stops, $stop, comma);

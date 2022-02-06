@@ -1,8 +1,0 @@
-body {
-	margin: 0;
-	font: 120%/1.5 var(--serif);
-	&[data-theme="dark"] {
-        background-color: var(--c-dark-background);
-        color: var(--c-dark-text)
-    }
-}
